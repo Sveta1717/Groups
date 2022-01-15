@@ -32,7 +32,7 @@ public:
 	void SetMark(int value);
 	void SetCoursework(int value);
 	void SetExam(int value);
-	void Show(const char* surname, const char* name, const char* patronymic, Date date, const char* adress, const char* phone);
+	void SetShow(const char* surname, const char* name, const char* patronymic, Date date, const char* adress, const char* phone);
 
 	const char* const GetAdress() const;
 	const char* const GetPhone() const;
