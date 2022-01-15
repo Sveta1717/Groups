@@ -13,8 +13,8 @@ int main()
 
 	Student s1("Ваня", "Ванечка", "Ванятко");
 	s1.Print();
-	//Student s2 = s1;
-	//s2.Print();
+	Student s2 = s1;
+	s2.Print();
 	cout << "Копия первой группы\n";
 	cout << "___________________\n\n";
 	Group* c = a;
@@ -37,11 +37,9 @@ int main()
 	cout << "Отчисление неуспевающих\n";
 	cout << "________________________\n\n";
 	b->Delete_exam(5);
-	/*cout << "Слияние групп\n";
+	cout << "Слияние групп\n";
+	cout << "________________________\n\n";
 	Group result = Group::MergeGroups(*a, *b);
-	result.PrintGroup();*/
-	//cout << "Перевод студента\n";
-	/*Group result1 = Group::RelocationStudent(*b, *a, "Барсик", "Иван", "Тимофеевич");
-	result1.PrintGroup();*/
+	result.PrintGroup();	
 	cout << "\n\n";
 }

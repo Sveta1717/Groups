@@ -83,17 +83,17 @@ Student::Student(const char* surname, const char* name, const char* patronymic)
 
 Student::Student(char* surname, char* name, char* patronymic, Date date)
 {
-	Show(surname, name, patronymic, date, adress, phone);
+	SetShow(surname, name, patronymic, date, adress, phone);
 }
 
 Student::Student(char* surname, char* name, char* patronymic, Date date, char* adress)
 {
-	Show(surname, name, patronymic, date, adress, phone);
+	SetShow(surname, name, patronymic, date, adress, phone);
 }
 
 Student::Student(const char* surname, const char* name, const char* patronymic, Date date, const char* adress, const char* phone) // главный конструктор
 {
-	Show(surname, name, patronymic, date, adress, phone);
+	SetShow(surname, name, patronymic, date, adress, phone);
 }
 
 
@@ -228,17 +228,52 @@ const char* const Student::GetPhone() const
 	return phone;
 }
 
-void Student::Show(const char* surname, const char* name, const char* patronymic, Date date, const char* adress, const char* phone)
+void Student::Print()
+{
+	cout << "Фамилия " << surname << "\n";
+	cout << "Имя: " << name << "\n";
+	cout << "Отчество: " << patronymic << "\n";
+	cout << "Дата рождения " << d.GetDay() << "." << d.GetMonth() << "." << d.GetYear() << "\n";
+	cout << "Адрес: " << adress << "\n";
+	cout << "Телефон: " << phone << "\n";
+	cout << "Зачет: ";
+	if (counterMarks > 0)
+	{
+		for (int i = 0; i < counterMarks; i++)
+		{
+			cout << marks[i];
+		}
+
+	}
+	cout << "\nКурсовая: ";
+
+	if (counterCoursework > 0)
+	{
+		for (int i = 0; i < counterCoursework; i++)
+		{
+			cout << coursework[i];
+		}
+	}
+	cout << "\nЭкзамен: ";
+	if (counterExam > 0)
+	{
+		for (int i = 0; i < counterExam; i++)
+		{
+			cout << exam[i];
+		}
+	}
+	cout << "\n\n";
+}
+
+void Student::SetShow(const char* surname, const char* name, const char* patronymic, Date date, const char* adress, const char* phone)
 {
 	SetSurname(this->surname);
 	SetName(this->name);
 	SetSurname(this->surname);
 	SetPatronymic(this->patronymic);
-	Date;
+	//Date;
 	SetAdress(this->adress);
-	SetPhone(this->phone);
-	for (int i = 0; i < counterExam; i++)
-		cout << exam[i] << " ";
+	SetPhone(this->phone);	
 }
 
 void Student::SetSurname(char* surname)
@@ -296,39 +331,3 @@ bool Student::operator < (Student& second)
 	return false;
 }
 
-void Student::Print()
-{
-	cout << "Фамилия " << surname << "\n";
-	cout << "Имя: " << name << "\n";
-	cout << "Отчество: " << patronymic << "\n";
-	cout << "Дата рождения " << d.GetDay() << "." << d.GetMonth() << "." << d.GetYear() << "\n";
-	cout << "Адрес: " << adress << "\n";
-	cout << "Телефон: " << phone << "\n";
-	cout << "Зачет: ";
-	if (counterMarks > 0)
-	{
-		for (int i = 0; i < counterMarks; i++)
-		{
-			cout << marks[i];
-		}
-
-	}
-	cout << "\nКурсовая: ";
-
-	if (counterCoursework > 0)
-	{
-		for (int i = 0; i < counterCoursework; i++)
-		{
-			cout << coursework[i];
-		}
-	}
-	cout << "\nЭкзамен: ";
-	if (counterExam > 0)
-	{
-		for (int i = 0; i < counterExam; i++)
-		{
-			cout << exam[i];
-		}
-	}
-	cout << "\n\n";
-}
